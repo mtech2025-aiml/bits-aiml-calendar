@@ -125,8 +125,15 @@ function render() {
 }
 
 async function init() {
-  state.bootstrap = await fetchJSON("", { action: "bootstrap" });
-  state.deadlines = await fetchJSON("", { action: "deadlines" });
+const bootstrapResponse = await fetchJSON("", { action: "bootstrap" });
+state.bootstrap = bootstrapResponse;
+
+const deadlinesResponse = await fetchJSON("", { action: "deadlines" });
+state.deadlines = (deadlinesResponse.deadlines || []).map((d) => ({
+  ...d,
+  elective: d.elective || d.elective_id || "",
+  date: d.date || d.end_display || d.start_display || ""
+}));
 
   const semesters = ["All", ...unique(state.deadlines.map((d) => d.semester))];
   const electives = ["All", ...unique(state.deadlines.map((d) => d.elective))];
