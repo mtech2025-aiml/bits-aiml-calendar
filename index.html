@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BITS M.Tech AIML</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">BITS M.Tech AIML Oct 2025 Batch (unofficial)</p>
+      <h1>Academic deadlines and semester tracker</h1>
+      <p class="subtle">Elective filters, timeline progress, deadline views, and admin editing — all from Google Sheets.</p>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="panel">
+      <div class="row">
+        <div>
+          <label for="semesterSelect">Semester</label>
+          <select id="semesterSelect"></select>
+        </div>
+        <div>
+          <label for="electiveSelect">Elective</label>
+          <select id="electiveSelect"></select>
+        </div>
+        <div>
+          <label for="typeSelect">Type</label>
+          <select id="typeSelect"></select>
+        </div>
+      </div>
+    </section>
+
+    <section class="banner panel">
+      <div>
+        <p class="eyebrow">Top priority</p>
+        <h2 id="bannerTitle">Loading…</h2>
+        <p id="bannerText" class="subtle"></p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>Timeline</h2>
+        <span id="progressText" class="pill">0 / 16 lectures</span>
+      </div>
+      <div class="progress-track">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+      <div class="markers">
+        <span>Lecture 4</span>
+        <span>Midsem 8</span>
+        <span>Endsem 16</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>Deadlines</h2>
+        <div class="tabs">
+          <button data-view="list" class="tab active">List</button>
+          <button data-view="table" class="tab">Table</button>
+          <button data-view="calendar" class="tab">Calendar</button>
+        </div>
+      </div>
+      <div id="viewRoot"></div>
+    </section>
+
+    <footer class="footer">
+      <a href="#" id="taxilaLink" target="_blank" rel="noreferrer">Taxila</a>
+      <a href="#" id="driveLink" target="_blank" rel="noreferrer">Master Drive</a>
+      <a href="#" id="examLink" target="_blank" rel="noreferrer">Exam links</a>
+    </footer>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
