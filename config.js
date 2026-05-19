@@ -1,5 +1,5 @@
 window.APP_CONFIG = {
-  apiBase: "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE",
+  apiBase: "https://script.google.com/macros/s/AKfycbyrJ3yBSwksqvqykdUWW6M9HUTjrmcRo3hDGhg4o2q0EyLke-67NEiomTEQ5rCbYdbx/exec",
   defaultSemester: "Sem 2",
   defaultElective: "All",
   defaultType: "All"
