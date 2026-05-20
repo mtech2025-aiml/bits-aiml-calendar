@@ -7,11 +7,23 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="selectionOverlay" class="overlay">
-    <div class="overlay-card">
-      <p class="eyebrow">Setup</p>
-      <h2>Select your 2 electives</h2>
-      <p class="subtle">ACI and DRL stay visible for everyone. Pick the other two electives you are taking.</p>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">BITS M.Tech AIML Oct 2025 Batch (unofficial)</p>
+      <h1>Academic one-stop calendar</h1>
+      <p class="subtle hero-copy">Choose electives, track EC1 work, open the exam calendar, and keep the class schedule in one clean place.</p>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="panel selection-panel" id="selectionPanel">
+      <div class="section-head stack-sm">
+        <div>
+          <h2>Choose your electives</h2>
+          <p class="subtle">ACI + DRL are mandatory. Pick your other 2 electives below.</p>
+        </div>
+      </div>
+
       <div class="row">
         <div>
           <label for="elective1Select">Elective 1</label>
@@ -22,41 +34,29 @@
           <select id="elective2Select"></select>
         </div>
       </div>
-      <button id="saveElectivesBtn" class="primary-btn">Continue</button>
-    </div>
-  </div>
 
-  <header class="hero">
-    <div class="hero-inner">
-      <p class="eyebrow">BITS M.Tech AIML Oct 2025 Batch (unofficial)</p>
-      <h1>Academic calendar</h1>
-      <p id="selectedSummary" class="summary">Select your electives to begin.</p>
-    </div>
-  </header>
+      <div class="academic-summary" id="academicSummary"></div>
+    </section>
 
-  <main class="shell">
-    <section class="panel">
-      <div class="mode-tabs" role="tablist" aria-label="Schedule modes">
-        <button data-mode="class" class="mode-tab active">Class schedule</button>
-        <button data-mode="ec1" class="mode-tab">EC1 schedule</button>
-        <button data-mode="exam" class="mode-tab">Exam schedule</button>
+    <section class="panel priority-panel" id="priorityBanner"></section>
+
+    <section class="panel nav-panel">
+      <div class="tabs tabs--big" id="mainTabs">
+        <button data-main-view="ec1" class="tab active">EC1 schedule</button>
+        <button data-main-view="exam" class="tab">Exam schedule</button>
+        <button data-main-view="class" class="tab">Class schedule</button>
       </div>
     </section>
 
-    <section class="panel">
-      <div class="section-head">
+    <section class="panel view-panel">
+      <div class="section-head stack-sm">
         <div>
-          <p class="eyebrow">Current view</p>
-          <h2 id="modeTitle">Class schedule</h2>
-          <p id="modeText" class="subtle">Weekly class schedule.</p>
+          <h2 id="viewTitle">EC1 schedule</h2>
+          <p id="viewSubtitle" class="subtle"></p>
         </div>
-        <div class="status-pill">Upcoming only</div>
       </div>
-    </section>
 
-    <section id="controlsRoot" class="panel"></section>
-
-    <section id="viewPanel" class="panel">
+      <div id="viewControls" class="view-controls"></div>
       <div id="viewRoot"></div>
     </section>
 
