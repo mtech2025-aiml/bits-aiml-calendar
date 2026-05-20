@@ -7,64 +7,56 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div id="selectionOverlay" class="overlay">
+    <div class="overlay-card">
+      <p class="eyebrow">Setup</p>
+      <h2>Select your 2 electives</h2>
+      <p class="subtle">ACI and DRL stay visible for everyone. Pick the other two electives you are taking.</p>
+      <div class="row">
+        <div>
+          <label for="elective1Select">Elective 1</label>
+          <select id="elective1Select"></select>
+        </div>
+        <div>
+          <label for="elective2Select">Elective 2</label>
+          <select id="elective2Select"></select>
+        </div>
+      </div>
+      <button id="saveElectivesBtn" class="primary-btn">Continue</button>
+    </div>
+  </div>
+
   <header class="hero">
-    <div>
+    <div class="hero-inner">
       <p class="eyebrow">BITS M.Tech AIML Oct 2025 Batch (unofficial)</p>
-      <h1>Academic deadlines and semester tracker</h1>
-      <p class="subtle">Elective filters, timeline progress, deadline views, and admin editing — all from Google Sheets.</p>
+      <h1>Academic calendar</h1>
+      <p id="selectedSummary" class="summary">Select your electives to begin.</p>
     </div>
   </header>
 
   <main class="shell">
     <section class="panel">
-      <div class="row">
-        <div>
-          <label for="semesterSelect">Semester</label>
-          <select id="semesterSelect"></select>
-        </div>
-        <div>
-          <label for="electiveSelect">Elective</label>
-          <select id="electiveSelect"></select>
-        </div>
-        <div>
-          <label for="typeSelect">Type</label>
-          <select id="typeSelect"></select>
-        </div>
-      </div>
-    </section>
-
-    <section class="banner panel">
-      <div>
-        <p class="eyebrow">Top priority</p>
-        <h2 id="bannerTitle">Loading…</h2>
-        <p id="bannerText" class="subtle"></p>
+      <div class="mode-tabs" role="tablist" aria-label="Schedule modes">
+        <button data-mode="class" class="mode-tab active">Class schedule</button>
+        <button data-mode="ec1" class="mode-tab">EC1 schedule</button>
+        <button data-mode="exam" class="mode-tab">Exam schedule</button>
       </div>
     </section>
 
     <section class="panel">
       <div class="section-head">
-        <h2>Timeline</h2>
-        <span id="progressText" class="pill">0 / 16 lectures</span>
-      </div>
-      <div class="progress-track">
-        <div id="progressFill" class="progress-fill"></div>
-      </div>
-      <div class="markers">
-        <span>Lecture 4</span>
-        <span>Midsem 8</span>
-        <span>Endsem 16</span>
+        <div>
+          <p class="eyebrow">Current view</p>
+          <h2 id="modeTitle">Class schedule</h2>
+          <p id="modeText" class="subtle">Weekly class schedule.</p>
+        </div>
+        <div class="status-pill">Upcoming only</div>
       </div>
     </section>
 
-    <section class="panel">
-      <div class="section-head">
-        <h2>Deadlines</h2>
-        <div class="tabs">
-          <button data-view="list" class="tab active">List</button>
-          <button data-view="table" class="tab">Table</button>
-          <button data-view="calendar" class="tab">Calendar</button>
-        </div>
-      </div>
+    <section id="controlsRoot" class="panel"></section>
+
+    <section id="viewPanel" class="panel">
       <div id="viewRoot"></div>
     </section>
 
